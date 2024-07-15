@@ -1,61 +1,50 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include<stdio.h>
+int main() {
+    int locks, stocks, barrels, tlocks, tstocks, tbarrels;
+    float lprice, sprice, bprice, lsales, ssales, bsales, sales, comm;
 
-int main(){
-    int locks,stocks,barrels;
-    float comission=0;
-    int t_sales;
+    lprice = 45.0;
+    sprice = 30.0;
+    bprice = 25.0;
+    tlocks = 0;
+    tstocks = 0;
+    tbarrels = 0;
 
-    while(1){
-        printf("Enter the value of locks (-1 to end program):\n");
-    scanf("%d",&locks);
+    printf("Enter the no of locks\n");
+    scanf("%d", &locks);
 
-    if(locks==-1){
-        printf("Program ends\n");
-        exit(0);
-    }
-    if(locks<=0 || locks>70)
-    {
-        printf("out of range : range(1-70)\n");
-        continue;
-    }
-    printf("Enter the value of stocks:\n");
-    scanf("%d",&stocks);
-
-
-    if(stocks<=0 || stocks>80)
-    {
-        printf("out of range : range(1-80)\n");
-        continue;
-    }
-    printf("Enter the value of barrels:\n");
-    scanf("%d",&barrels);
-
-
-    if(barrels<=0 || barrels>90)
-    {
-        printf("out of range : range(1-90)\n");
-        continue;
-    }
-    printf("locks : %d\nstocks : %d\nbarrels : %d\n",locks,stocks,barrels);
-
-    t_sales = (locks*45)+(stocks*30)+(barrels*25);
-    printf("Total Sales is %d\n",t_sales);
-
-    if(t_sales<=1000){
-        comission = 0.10*t_sales;
-    }
-    else if(t_sales<1800){
-        comission = 0.10*1000;
-        comission = comission + (0.15 * (t_sales - 1000));
-    }
-    else {
-        comission = 0.10*1000;
-        comission = comission + (0.15 * 800);
-        comission = comission + (0.20 * (t_sales - 1800));
+    while (locks != -1) {
+        printf("Enter the no of stocks and barrels:\n");
+        scanf("%d%d", &stocks, &barrels);
+        tlocks = tlocks + locks;
+        tstocks = tstocks + stocks;
+        tbarrels = tbarrels + barrels;
+        printf("Enter lock value or -1 for loop to end and display sales commission values\n");
+        scanf("%d", &locks);
     }
 
-    printf("Total comission is : %.2f\n\n\n\n",comission);
+    printf("Total locks = %d\n", tlocks);
+    printf("Total stocks = %d\n", tstocks);
+    printf("Total barrels = %d\n", tbarrels);
 
+    lsales = lprice * tlocks;
+    ssales = sprice * tstocks;
+    bsales = bprice * tbarrels;
+    sales = lsales + ssales + bsales;
+
+    printf("The total sales = %f\n", sales);
+
+    if (sales > 1800.0) {
+        comm = 0.10 * 1000.0;
+        comm = comm + 0.15 * 800;
+        comm = comm + 0.20 * (sales - 1800.0);
+    } else if (sales > 1000) {
+        comm = 0.10 * 1000;
+        comm = comm + 0.15 * (sales - 1000.0);
+    } else {
+        comm = 0.10 * sales;
     }
+
+    printf("The commission is = %f\n", comm);
+    return 0;
 }

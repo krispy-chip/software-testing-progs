@@ -19,15 +19,27 @@ int main() {
 
     if(c1 && c2 && c3) {
         switch(month) {
-            case 1: case 3: case 5: case 7: case 8: case 10:
+            case 1:
+            case 3:
+            case 5:
+            case 7:
+            case 8:
+            case 10:
                 if(day < 31) tmday = day + 1;
-                else {
+                else if(day==31){
                     tmday = 1;
                     tmmonth = month + 1;
                 }
+                else {
+                    printf("Invalid input\n");
+                    return 1;
+                }
                 break;
 
-            case 4: case 6: case 9: case 11:
+            case 4:
+            case 6:
+            case 9:
+            case 11:
                 if(day < 30) tmday = day + 1;
                 else if(day == 30) {
                     tmday = 1;
@@ -54,13 +66,13 @@ int main() {
             case 2:
                 if(day < 28) tmday = day + 1;
                 else if(day == 28) {
-                    if(year % 4 == 0 && (year % 100 != 0 || year % 400 == 0)) tmday = 29;
+                    if(year % 4 == 0) tmday = 29;
                     else {
                         tmday = 1;
                         tmmonth = 3;
                     }
                 } else if(day == 29) {
-                    if(year % 4 == 0 && (year % 100 != 0 || year % 400 == 0)) {
+                    if(year % 4 == 0) {
                         tmday = 1;
                         tmmonth = 3;
                     } else {

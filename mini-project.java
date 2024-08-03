@@ -52,25 +52,14 @@ public class FirstTestClass {
         
         WebElement passwordField = wait.until(ExpectedConditions.elementToBeClickable(By.id("pass")));
         passwordField.click(); // Click on the password field
-        passwordField.sendKeys("jhsdudihf79435"); // Enter the password
+        passwordField.sendKeys("Krispy07."); // Enter the password
         WebElement signInSubmitButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"sgnBt\"]")));
         signInSubmitButton.click();
         
         Thread.sleep(5000);
         
-        passwordField.clear();
-     
-        Thread.sleep(3000);
-
-        passwordField.clear();
-        // Wait for the password field to be clickable and enter the password
-        WebElement passwordField2 = wait.until(ExpectedConditions.elementToBeClickable(By.id("pass")));
-        passwordField2.click(); // Click on the password field
-        passwordField2.sendKeys("Krispy07."); // Enter the password
+       
         
-        // Click on the sign-in button
-        WebElement signInSubmitButton2 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"sgnBt\"]")));
-        signInSubmitButton2.click();
         
         // Handle passkeys cancel button if it appears
         try {
@@ -80,7 +69,7 @@ public class FirstTestClass {
             System.out.println("Passkeys cancel button not found or clickable.");
         }
         Thread.sleep(3000);
-        // Perform search for "adidas superstar"
+        
         WebElement searchBox = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"gh-ac\"]")));
         searchBox.sendKeys("adidas superstar");
         
@@ -92,7 +81,7 @@ public class FirstTestClass {
         WebElement adidasSuperstarProduct = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"item4062a70ceb\"]/div/div[1]/div/a/div/img")));
         adidasSuperstarProduct.click();
         
-        // Switch to the new window opened
+//        // Switch to the new window opened
         String mainPage = driver.getWindowHandle();
         Set<String> allPages = driver.getWindowHandles();
 
@@ -108,7 +97,7 @@ public class FirstTestClass {
         selectSizeDropdown.click();
         Thread.sleep(5000);
         // Add this code to select size 9
-        WebElement size9Option = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@role='option']//span[contains(text(), '9')]")));
+        WebElement size9Option = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@role='option']//span[contains(text(), '13')]")));
         size9Option.click();
         Thread.sleep(3000);
         // Add to cart
@@ -126,12 +115,12 @@ public class FirstTestClass {
         Thread.sleep(4000);
         JavascriptExecutor js1 = (JavascriptExecutor) driver;
         for (int i = 0; i < 10; i++) {
-            js1.executeScript("window.scrollBy(0, 105)");
+            js1.executeScript("window.scrollBy(0, 405)");
             Thread.sleep(100);  // Adjust the sleep duration as needed
         }
         Thread.sleep(2000);
         WebDriverWait wait2 = new WebDriverWait(driver, Duration.ofSeconds(10));
-        WebElement samsung = wait2.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"item2dc018ede3\"]/div/div[1]/div/a/div/img")));
+        WebElement samsung = wait2.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"item4056ea708d\"]/div/div[1]/div/a/div/img")));
         samsung.click();
 
         // Switch to the new tab opened by the apple link click
@@ -182,7 +171,7 @@ public class FirstTestClass {
         selectcolor2.click();
         Thread.sleep(4000);
         // Add this code to select color
-        WebElement goldOption1 = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@role='option' and @class='listbox__option']//span[contains(text(), 'Gold')]")));
+        WebElement goldOption1 = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@role='option' and @class='listbox__option']//span[contains(text(), 'Green')]")));
         goldOption1.click();
         Thread.sleep(2000);
         // Add apple ipad pro to cart
